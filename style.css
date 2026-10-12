@@ -13,6 +13,7 @@
     --text:	#2E2E2E;
     --secondary-text: #6B7280;
     --accent: #D9A86C; /* (Soft Gold) */
+    --error: #995603;
 }
 
 @font-face {
@@ -72,7 +73,7 @@ nav{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: space-between;
+  align-items: center;
 }
 
 .burger-menu{ 
@@ -100,6 +101,7 @@ nav{
 .rotate2{
   transform: rotate(-45deg) translateY(-10px);
 }
+
 .menu{
   width: 50vw;
   height: 100vh;
@@ -159,6 +161,20 @@ nav{
   color: var(--background);
   font-weight: 500;
   transition: color .3s ease;
+}
+
+.whatsapp-logo{
+  width: 3rem;
+  position: sticky;
+  bottom: 1rem;
+  right: 0rem;
+  z-index: 2000;
+  transition: transform .5s ease;
+}
+
+.whatsapp-logo:hover{
+  transform: translateY(-6px);
+
 }
 
 section{
@@ -299,7 +315,7 @@ box-shadow: 0 6px 20px rgba(0,0,0,.18);
 #best-seller-badge{
   background: var(--accent);
   color: var(--surface);
-  box-shadow: 0 4px 80 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 4px rgba(0,0,0,0.2);
 }
 
 /* #new{
@@ -320,7 +336,7 @@ box-shadow: 0 6px 20px rgba(0,0,0,.18);
   top: 5rem;
   /* left: 50%;
   transform: translate(-50%,); */
-  overflow-Y: scroll;
+  overflow-Y: auto;
   z-index: 20;
   background: var(--background);
   padding: 1.5rem 2rem;
@@ -353,7 +369,7 @@ box-shadow: 0 6px 20px rgba(0,0,0,.18);
 }
 
 .overlay{
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
@@ -364,6 +380,7 @@ box-shadow: 0 6px 20px rgba(0,0,0,.18);
 
 .closing-x{
   background: rgba(0, 0, 0, 0.2);
+  border: none;
   color: var(--background);
   padding: .5rem;
   position: absolute;
@@ -504,7 +521,7 @@ font-size: .6rem;
    margin: auto;
    padding: .5rem;
    /* box-shadow: 0 6px 20px rgba(0,0,0,.08); */
-   margin-bottom: 2rem;
+   margin-bottom: 3rem;
  }
  .q-and-a{
   margin-bottom: 1.5rem;
@@ -530,17 +547,24 @@ font-size: .6rem;
 .caret{
   background: transparent;
   border: none;
+  transition: transform .5s ease;
 }
+
+.rotate180deg{
+   transform: rotate(180deg);
+}
+
 .answer{
-  display: none;
+  opacity: 1;
   color: var(--primary-dark);
   transition: .5s ease;
 }
+
 .display-block{
   display: block;
 }
 
-.hide{
+.hide, .hidden{
   display: none;
 }
 .show{
@@ -575,6 +599,7 @@ label{
 
 .error-message{
   color: var(--primary-dark);
+  color: var(--error);
 }
 #user-email{
     line-height: 2.5rem;
@@ -680,7 +705,7 @@ footer{
 .footer-item > a{
   text-decoration: none;
   color: var(--background);
-  transition: color .4sec ease;
+  transition: color .4s ease;
 }
 
 .footer-item > a:hover{
@@ -953,7 +978,7 @@ header{
     margin-right: 0rem;
   }
 
-  .nav-controlers{
+  .nav-controls{
     justify-content: space-around;
     align-items: center;
   }
@@ -967,26 +992,18 @@ header{
   width: 100%;
   height: auto;/*to cancle the height of mobile menu*/
   background: transparent;
-  /* list-style: none;
-  display: flex; */
   flex-direction:row;
   align-items: center;
-  gap: .4rem;
   position: static;/* to remove position:absolute of mobile */
   padding: 0;
   gap: 1rem;
-  /* transform:translatex(100%); */
-  /* left: -80vw; */
-
+  
   /* This part is to cancle the glass effect */
     /* background:transparent; */
-    box-shadow:none;
-    backdrop-filter: none; /*blur(12px);*/
-    -webkit-backdrop-filter: blur(12px); /* Safari support */
-    /* border: 1px solid rgba(255, 255, 255, 0.25); */
-    border: none;
-  /* transition:left 0.4s ease; */
-box-shadow: none;
+  box-shadow:none;
+  backdrop-filter: none; /*blur(12px);*/
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  border: none;
 }
 
 .cta-button{
@@ -1109,79 +1126,12 @@ color: var(--background);
   .faq{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* column-gap: 3rem; */
-     gap: 3rem;
+    gap: 3rem;
+    padding-bottom: 2rem;
   }
 
   .faq > .section-title{
-     grid-column: 1 / -1;;
+     grid-column: 1 / -1;
   }
 
 }
-
-
-/* Primary	#5C7F67 (Sage Green)
-Secondary	#E8DCCF (Warm Beige)
-Background	#FAF8F5
-Surface	#FFFFFF
-Text	#2E2E2E
-Secondary Text	#6B7280
-Accent	#D9A86C (Soft Gold) */
-
-
-
-/* box-shadow: 0 12px 30px rgba(92,127,103,.18); */
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-  /* box-shadow: 0 6px 20px rgba(0,0,0,.08); product-card, testimonial-card */
-
-/* الخطوط
-العناوين
-
-Cormorant Garamond
-
-تعطي إحساسًا بالفخامة، وتستخدمها كثير من علامات التجميل.
-
-النصوص
-
-Manrope
-
-أو
-
-Plus Jakarta Sans
-
-كلاهما حديث وواضح على الشاشات.
-
-
-primary buttons
-خلفية خضراء
-نص أبيض
-حواف دائرية
-Hover
-يتحول إلى أخضر أغمق
-
-
-secondary buttons
-خلفية شفافة
-حد أخضر
-Hover
-يمتلئ باللون الأخضر
-
-أسلوب البطاقات
-زوايا مستديرة (16–20px).
-ظل خفيف جدًا.
-مسافات داخلية مريحة.
-تأثير Hover بسيط (ارتفاع بسيط مع ظل أعمق قليلًا). 
-
-
-svg caret down
-<svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(180)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M11.2929 8.79289C11.6834 8.40237 12.3166 8.40237 12.7071 8.79289L17.7071 13.7929C18.0976 14.1834 18.0976 14.8166 17.7071 15.2071C17.3166 15.5976 16.6834 15.5976 16.2929 15.2071L12 10.9142L7.70711 15.2071C7.31658 15.5976 6.68342 15.5976 6.29289 15.2071C5.90237 14.8166 5.90237 14.1834 6.29289 13.7929L11.2929 8.79289Z" fill="#375741"></path> </g></svg>
-
-
-svg caret up
-
-<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M11.2929 8.79289C11.6834 8.40237 12.3166 8.40237 12.7071 8.79289L17.7071 13.7929C18.0976 14.1834 18.0976 14.8166 17.7071 15.2071C17.3166 15.5976 16.6834 15.5976 16.2929 15.2071L12 10.9142L7.70711 15.2071C7.31658 15.5976 6.68342 15.5976 6.29289 15.2071C5.90237 14.8166 5.90237 14.1834 6.29289 13.7929L11.2929 8.79289Z" fill="#375741"></path> </g></svg>
-
-
-
-
-*/
